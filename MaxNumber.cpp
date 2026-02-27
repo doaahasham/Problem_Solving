@@ -1,16 +1,12 @@
 #include <iostream>
 using namespace std;
 
-void MaxNumber(int N , long long A[] , int index , long long Max){
-    if(index==N)
-    {
-        cout<<Max;
-        return ;
-    }
+void MaxNumber(int N , long long A[] , long long sum){
+    if(index==0) return ;
 
-     if(A[index] > Max) Max = A[index];
+     sum+=A[N];
 
-    MaxNumber(N , A , index+1 , Max);
+    MaxNumber(N-1 , A ,Max);
 }
 int main()
 {
@@ -21,7 +17,7 @@ int main()
         cin>>A[i];
     }
 
-    MaxNumber(N,A,0,A[0]);
+    MaxNumber(N,A,A[0]);
 
     return 0;
 }
